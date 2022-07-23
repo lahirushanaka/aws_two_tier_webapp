@@ -12,7 +12,7 @@ provider "aws" {
   region = "${var.region}"
 }
 module "vpc" {
-  source = "https://github.com/terraform-aws-modules/terraform-aws-vpc"
+  source = "git::https://github.com/terraform-aws-modules/terraform-aws-vpc.git"
   name = "${var.environment}-vpc"
   cidr = lookup(var.network_cidr,var.environment, null)
   azs   = ["${var.region}a","${var.region}b"]
