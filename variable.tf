@@ -5,7 +5,7 @@ variable "environment" {
 }
 
 variable "network_cidr" {
-  type    = list(string)
+  type    = list(object)
   default = {
     dev    = "10.0.0.0/24"
     uat        = "10.0.1.0/24"
@@ -19,7 +19,7 @@ variable "region" {
 }
 
 variable "private_subnet_cidrs" {
-  type = list(string)
+  type = list(object)
   default = {
     dev    = ["10.0.0.0/26", "10.0.0.64/26"]
     uat         = ["10.0.1.0/26", "10.0.1.64/26"]
@@ -28,7 +28,7 @@ variable "private_subnet_cidrs" {
 }
 
 variable "public_subnet_cidrs" {
-  type = list(string)
+  type = list(object)
   default = {
     dev    = ["10.0.0.128/26", "10.0.0.192/26"]
     uat         = ["10.0.1.128/26", "10.0.1.192/26"]
