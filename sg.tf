@@ -7,11 +7,11 @@ module "sg-ec2" {
     ingress_with_cidr_blocks = [
         {
             rule    = "ssh-tcp"
-            cidr_block = "0.0.0.0/0"
+            cidr_blocks = "0.0.0.0/0"
         },
         {
             rule    = "http-80-tcp"
-            cidr_block = "0.0.0.0/0"
+            cidr_blocks = "0.0.0.0/0"
         },
 
     ]
