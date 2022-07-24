@@ -48,3 +48,10 @@ variable "public_subnet_cidrs" {
 #   }
 }
 
+################ASG###############
+variable "instance_type" {
+    type = string
+  
+}
+
+
