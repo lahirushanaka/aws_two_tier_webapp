@@ -26,8 +26,8 @@ module "vpc" {
 #### Security Groups #########
 module "sg-ec2" {
     source = "git::https://github.com/terraform-aws-modules/terraform-aws-security-group.git"
-    name = "${environment}-ec2-sg"
-    description = "Security group for ${environment} EC2"
+    name = "${var.environment}-ec2-sg"
+    description = "Security group for ${var.environment} EC2"
     vpc_id = module.vpc.vpc_id
     ingress_with_cidr_blocks = [
         {
@@ -90,7 +90,7 @@ module "asg" {
   launch_template_description = "Launch templatefor ${var.environment}"
   update_default_version      = true
 
-  image_id          = data.aws_ami.image_id
+  image_id          = data.aws_ami.id
   instance_type     = var.instance_type
   ebs_optimized     = true
   enable_monitoring = true
