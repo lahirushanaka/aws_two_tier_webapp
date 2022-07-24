@@ -90,7 +90,7 @@ module "asg" {
   launch_template_description = "Launch templatefor ${var.environment}"
   update_default_version      = true
 
-  image_id          = data.aws_ami.id
+  image_id          = data.aws_ami.ami.image_id
   instance_type     = var.instance_type
   ebs_optimized     = true
   enable_monitoring = true
