@@ -90,7 +90,7 @@ module "asg" {
   launch_template_description = "Launch templatefor ${var.environment}"
   update_default_version      = true
 
-  image_id          = "ami-ebd02392"
+  image_id          = data.aws_ami.image_id
   instance_type     = var.instance_type
   ebs_optimized     = true
   enable_monitoring = true
@@ -152,7 +152,7 @@ module "asg" {
       delete_on_termination = true
       description           = "eth0"
       device_index          = 0
-      security_groups       = ["sg-12345678"]
+      security_groups       = ["${module.sg-ec2.security_group_id}"]
     }
     
   ]
